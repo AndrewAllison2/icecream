@@ -33,11 +33,13 @@ const toppings = [{
 const containers = [{
   name: 'Waffle Cone',
   image: 'https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg',
-  price: 2
+  price: 2,
+  quantity: 0,
 }, {
   name: 'Waffle Bowl',
   image: 'http://images.wbmason.com/350/L_JOY66050.jpg',
-  price: 4
+  price: 4,
+  quantity: 0,
 }]
 
 // Selection Functions
@@ -90,6 +92,22 @@ function clickChocolateChips() {
   drawCart()
   drawTotal()
 }
+function clickCone() {
+  let containerCone = toppings.find(containerCone => containerCone.name == 'Chocolate Chips')
+  // @ts-ignore
+  containerCone.quantity++
+
+  drawCart()
+  drawTotal()
+}
+function clickBowl() {
+  let containerBowl = toppings.find(containerBowl => containerBowl.name == 'Chocolate Chips')
+  // @ts-ignore
+  containerBowl.quantity++
+
+  drawCart()
+  drawTotal()
+}
 
 
 
@@ -131,9 +149,27 @@ function drawCart() {
     }
   })
 
+  let stringOfCones = ''
+
+  containers.forEach(coneType => {
+    if (coneType.quantity > 0) {
+      stringOfCones += `
+      <li>
+      <div class="d-flex justify-content-between">
+      <span>${coneType.name}</span>
+      <span>${coneType.price}</span>
+      <span>${coneType.quantity}</span>
+      
+      
+      </div>
+      </li>
+      `
+    }
+  })
+
   const cartElement = document.getElementById('cart')
   // @ts-ignore
-  cartElement.innerHTML = stringOfIceCreamFlavors + stringofToppings
+  cartElement.innerHTML = stringOfIceCreamFlavors + stringofToppings + stringOfCones
 }
 
 
@@ -150,5 +186,5 @@ function drawTotal() {
 
   let cartTotalElement = document.getElementById('cartTotal')
   // @ts-ignore
-  cartTotalElement.innerText = cartSum.toString()
+  cartTotalElement.innerText = cartSum.toFixed(2).toString()
 }
