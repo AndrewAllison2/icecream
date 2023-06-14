@@ -1,4 +1,19 @@
+✅
 /* Set up the HTML structure with appropriate containers for displaying the ice cream flavors,and the cart.
-Add an onClick event to the ice cream flavor images to allow users to purchase them and add them to the cart.
-Initialize the arrays iceCream
-Create a cart */
+✅Add an onClick event to the ice cream flavor images to allow users to purchase them and add them to the cart.
+✅Initialize the arrays iceCream
+✅Create a cart */
+/* ✅/* Implement a purchasing function that adds the selected ice cream flavor to the cart and increases the quantity. */
+
+
+/* ✅Calculate the total price every time an item is added to the cart. */
+
+
+
+/* Render the receipt section on the page, displaying the total number of items and the total cost.
+
+Implement a purchasing function for toppings similar to the one for ice cream flavors.
+
+Update the total price and the receipt section when toppings are added to the cart.
+
+Allow users to select a container for their ice cream by adding an onClick */

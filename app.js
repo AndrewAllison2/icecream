@@ -27,6 +27,9 @@ function clickCookieDough() {
   // @ts-ignore
   cookieIceCream.quantity++
   console.log(cookieIceCream);
+
+  drawCart()
+  drawTotal()
 }
 
 function clickVanilla() {
@@ -34,6 +37,9 @@ function clickVanilla() {
   // @ts-ignore
   vanillaIceCream.quantity++
   console.log(vanillaIceCream);
+
+  drawCart()
+  drawTotal()
 }
 
 function clickStrawberry() {
@@ -41,22 +47,45 @@ function clickStrawberry() {
   // @ts-ignore
   strawberryIceCream.quantity++
   console.log(strawberryIceCream);
+
+  drawCart()
+  drawTotal()
 }
 
 
-function drawQuantity() {
+function drawCart() {
 
-  let stringOfIceCreamQuantity = ''
+  let stringOfIceCreamFlavors = ''
 
-  iceCream.forEach(iceCreamQuantity => {
-    if (iceCreamQuantity.quantity > 0) {
-      stringOfIceCreamQuantity += `
-      
+  iceCream.forEach(iceCreamFlavors => {
+    if (iceCreamFlavors.quantity > 0) {
+      stringOfIceCreamFlavors += `
+      <li>
+            <div class="d-flex justify-content-between">
+              <span>${iceCreamFlavors.name}</span>
+              <span>${iceCreamFlavors.quantity}</span>
+              <span>${iceCreamFlavors.price}</span>
+            
+            </div>
+          </li>
       `
-
-      console.log(iceCreamQuantity);
-
-
     }
   })
+
+  const cartElement = document.getElementById('cart')
+  // @ts-ignore
+  cartElement.innerHTML = stringOfIceCreamFlavors
+}
+
+
+function drawTotal() {
+  let cartSum = 0
+
+  iceCream.forEach(iceCreamFlavor => {
+    cartSum += iceCreamFlavor.price * iceCreamFlavor.quantity
+  })
+
+  let cartTotalElement = document.getElementById('cartTotal')
+  // @ts-ignore
+  cartTotalElement.innerText = cartSum.toString()
 }
