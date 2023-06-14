@@ -24,91 +24,41 @@
   </header>
 
   <main class="container-fluid">
-    <section class="row d-flex flex-row justify-content-around">
+    <section class="row">
 
-      <!-- <table class="col-4 table">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Qty</th>
-          <th scope="col">Each</th>
-          <th scope="col">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Cookie Dough</th>
-          <td id="quantityIceCream">Qty Cookie</td>
-          <td>$1.25</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">Vanilla</th>
-          <td id="quantityIceCream"></td>
-          <td>$1.00</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Strawberry</th>
-          <td id="quantityIceCream"></td>
-          <td>$1.25</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-      </table> -->
-
-      <div class="col-12 bg-secondary p-4 ">
+      <div class="col-4 bg-secondary p-4 ">
         <h2 class="text-center text-light">Cart</h2>
 
-        <div class="row mt-3 fs-3 justify-content-between">
-          <div class="col-3">Name</div>
-          <div class="col-3">Quantity</div>
-          <div class="col-3">Price</div>
+        <div class="row mt-3 justify-content-around">
+          <div class="col-3 text-start">Name</div>
+          <div class="col-3 text-center">Price</div>
+          <div class="col-3 text-end">Quantity</div>
           <!-- <div class="col-3">Total</div> -->
         </div>
 
         <!-- SECTION Drawing cart to page -->
 
-        <ol id="cart" class="fs-5 pe-5">
-          <!-- <li>
-            <div class="d-flex justify-content-between">
-              <span>Cookie Dough</span>
-              <span>Qty</span>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex justify-content-between">
-              <span>Vanilla</span>
-              <span>Qty</span>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex justify-content-between">
-              <span>Strawberry</span>
-              <span>Qty</span>
-            </div>
-          </li> -->
-        </ol>
-      </div>
+        <ul id="cart" class="pe-5 cartElem">
+        </ul>
+        <div class="text-center p-3 d-flex flex-row justify-content-between align-content-center">
+          <h3>Total: <span id="cartTotal">0</span></h3>
+          <button onclick="checkout()" class="btn btn-success">Checkout</button>
 
-      <div class="text-center p-3 d-flex flex-row justify-content-end align-content-center">
-        <h3>Total: <span id="cartTotal">0</span></h3>
-
+        </div>
       </div>
 
 
 
 
-
-
-      <div class="col-12 bg-primary">
+      <div class="col-8 bg-primary">
         <h2 class="text-center">Ice Cream</h2>
 
-        <div class="row">
+        <div class="row d-flex flex-row">
 
           <!-- SECTION Ice Cream Buttons -->
 
           <div class="col-4 d-flex justify-content-around p-3 card-Ice-Cream">
+
             <button onclick="clickCookieDough()" class="card">
               <img src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg"
                 class="card-img" alt="Cookie-Dough">
@@ -140,12 +90,58 @@
           </div>
 
         </div>
-      </div>
+        <section class="row bg-primary">
+          <h3 class="text-center">Toppings</h3>
 
+          <div class="col-6 d-flex flex-coulmn justify-content-around p-3 card-Ice-Cream">
+            <button onclick="clickSprinkles()" class="card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" class="card-img"
+                alt="Sprinkles">
+              <div class="card-body">
+                <p class="card-text text-center">SPRINKLES</p>
+              </div>
+            </button>
+          </div>
 
+          <div class="col-6 d-flex justify-content-around p-3 card-Ice-Cream">
+            <button onclick="clickChocolateChips()" class="card">
+              <img
+                src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360"
+                class="card-img" alt="Chocolate Chps">
+              <div class="card-body">
+                <p class="card-text text-center">CHOCOLATE CHIPS</p>
+              </div>
+            </button>
+          </div>
+        </section>
 
+        <section class="row">
+          <div class="col-6 d-flex justify-content-around p-3 card-Ice-Cream">
+            <button onclick="clickCone()" class="card">
+              <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" class="card-img" alt="Cone">
+              <div class="card-body">
+                <p class="card-text text-center">WAFFLE CONE</p>
+              </div>
+            </button>
+          </div>
+
+          <div class="col-6 d-flex justify-content-around p-3 card-Ice-Cream">
+            <button onclick="clickBowl()" class="card">
+              <img src="http://images.wbmason.com/350/L_JOY66050.jpg" class="card-img" alt="Bowl">
+              <div class="card-body">
+                <p class="card-text text-center">WAFFLE BOWL</p>
+              </div>
+            </button>
+          </div>
+        </section>
 
     </section>
+    </div>
+
+
+
+
+
   </main>
 
 
