@@ -93,7 +93,7 @@ function clickChocolateChips() {
   drawTotal()
 }
 function clickCone() {
-  let containerCone = toppings.find(containerCone => containerCone.name == 'Chocolate Chips')
+  let containerCone = containers.find(containerCone => containerCone.name == 'Waffle Cone')
   // @ts-ignore
   containerCone.quantity++
 
@@ -101,7 +101,7 @@ function clickCone() {
   drawTotal()
 }
 function clickBowl() {
-  let containerBowl = toppings.find(containerBowl => containerBowl.name == 'Chocolate Chips')
+  let containerBowl = containers.find(containerBowl => containerBowl.name == 'Waffle Bowl')
   // @ts-ignore
   containerBowl.quantity++
 
@@ -116,7 +116,7 @@ function drawCart() {
   let stringOfIceCreamFlavors = ''
 
   iceCream.forEach(iceCreamFlavors => {
-    if (iceCreamFlavors.quantity > 0) {
+    if (iceCreamFlavors.quantity >= 0) {
       stringOfIceCreamFlavors += `
       <li>
             <div class="d-flex justify-content-between">
@@ -134,12 +134,12 @@ function drawCart() {
   let stringofToppings = ''
 
   toppings.forEach(toppingFlavors => {
-    if (toppingFlavors.quantity > 0) {
+    if (toppingFlavors.quantity >= 0) {
       stringofToppings += `
       <li>
       <div class="d-flex justify-content-between">
       <span>${toppingFlavors.name}</span>
-      <span>${toppingFlavors.price}</span>
+      <span>${toppingFlavors.price.toFixed(2)}</span>
       <span>${toppingFlavors.quantity}</span>
       
       
@@ -152,12 +152,12 @@ function drawCart() {
   let stringOfCones = ''
 
   containers.forEach(coneType => {
-    if (coneType.quantity > 0) {
+    if (coneType.quantity >= 0) {
       stringOfCones += `
       <li>
       <div class="d-flex justify-content-between">
       <span>${coneType.name}</span>
-      <span>${coneType.price}</span>
+      <span>${coneType.price.toFixed(2)}</span>
       <span>${coneType.quantity}</span>
       
       
@@ -184,7 +184,31 @@ function drawTotal() {
     cartSum += toppingFlavor.price * toppingFlavor.quantity
   })
 
+  containers.forEach(containerType => {
+    cartSum += containerType.price * containerType.quantity
+  })
+
   let cartTotalElement = document.getElementById('cartTotal')
   // @ts-ignore
   cartTotalElement.innerText = cartSum.toFixed(2).toString()
 }
+
+function Checkout() {
+
+  const checkoutTime = window.confirm("Are you sure you want to check out? 🤔")
+
+  if (!checkoutTime) {
+    return
+  }
+
+  iceCream.forEach(iceCreamFlavor => iceCreamFlavor.quantity = 0);
+  toppings.forEach(toppingFlavors => toppingFlavors.quantity = 0);
+  containers.forEach(containerType => containerType.quantity = 0)
+
+  drawCart()
+  drawTotal()
+
+  window.alert('Enjoy your ice cream!')
+}
+
+drawCart()
